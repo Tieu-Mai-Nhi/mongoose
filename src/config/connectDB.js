@@ -6,8 +6,9 @@ const Schema = mongoose.Schema;
 const account = new Schema(
   {
     username: String,
-    password: Number,
+    password: String,
     age: Number,
+    salary: Number,
   },
   { collection: "Account" }
   //   chọn đúng collection, ko auto thêm s
@@ -15,43 +16,48 @@ const account = new Schema(
 
 const AccountModel = mongoose.model("account", account);
 
-// AccountModel.find({ username: "okok" })
-//   .then(function (data) {
-//     console.log("data: ", data);
-//   })
-//   .catch(function (e) {
-//     console.log("error: ", e);
-//   });
-
-// AccountModel.create({
-//   username: "hung",
-//   password: 88888,
-// })
-//   .then(function (data) {
-//     console.log("data: ", data);
-//   })
-//   .catch(function (e) {
-//     console.log("error: ", e);
-//   });
-
-AccountModel.updateOne(
-  // ĐIỀU KIỆN
+const course = new Schema(
   {
-    username: "hung",
+    username: String,
+    password: String,
+    age: Number,
+    salary: Number,
   },
-  //CÁI CẦN SỬA Ở DATA MỚI
-  {
-    password: 123456,
-  }
-)
-  .then((data) => console.log("data: ", data))
-  .catch((e) => console.log("error: ", e));
+  { collection: "course" }
+  //   chọn đúng collection, ko auto thêm s
+);
 
-AccountModel.deleteMany(
-  // ĐIỀU KIỆN
-  {
-    username: "thang",
-  }
-)
-  .then((data) => console.log("data: ", data))
-  .catch((e) => console.log("error: ", e));
+const CourseModel = mongoose.model("course", course);
+
+// AccountModel.create(
+//   {
+//     username: "student1",
+//     password: "123564",
+//     age: 19,
+//     salary: 2000,
+//   },
+//   {
+//     username: "student2",
+//     password: "xxxx",
+//     age: 19,
+//     salary: 2500,
+//   },
+//   {
+//     username: "student3",
+//     password: 123454,
+//     age: 19,
+//     salary: 2045600,
+//   },
+//   {
+//     username: "student4",
+//     password: 12564,
+//     age: 1789,
+//     salary: 278000,
+//   },
+//   {
+//     username: "student5",
+//     password: 451423,
+//     age: 7819,
+//     salary: 205400,
+//   }
+// );
